@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserItem from './UserItem';
+import { addUser } from '../actions/userActions';
 
 class UserList extends React.Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class UserList extends React.Component {
 const mapStateToProps = ({ users }) => ({ users });
 
 const mapDispatchToProps = dispatch => ({
-    addUser: name => dispatch({ type: 'addUser', payload: name }),
+    addUser: name => dispatch(addUser(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);
